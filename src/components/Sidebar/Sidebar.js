@@ -29,7 +29,7 @@ import {
   toggleSidebar,
 } from "../../context/LayoutContext";
 
-const structure = [
+const structureDemo = [
   { id: 0, label: "Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
   {
     id: 1,
@@ -81,6 +81,11 @@ const structure = [
     link: "",
     icon: <Dot size="large" color="secondary" />,
   },
+];
+
+const structure = [
+  { id: 0, label: "Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
+  { id: 3, label: "Criar Cartaz", link: "/app/tags", icon: <WallpaperIcon /> },
 ];
 
 function Sidebar({ location }) {
