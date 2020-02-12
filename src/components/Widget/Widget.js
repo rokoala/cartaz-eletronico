@@ -19,6 +19,7 @@ export default function Widget({
   bodyClass,
   disableWidgetMenu,
   header,
+  widgetStyle,
   ...props
 }) {
   var classes = useStyles();
