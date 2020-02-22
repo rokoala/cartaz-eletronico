@@ -4,11 +4,17 @@ import useStyles from "./styles";
 import { Button } from "@material-ui/core/";
 import ReactToPrint from "react-to-print";
 import Slider from "@material-ui/core/Slider";
+import PricePreview from "./PricePreview";
 
 export default function Preview({ product }) {
   const classes = useStyles();
   const componentRef = useRef();
   const [zoom, setZoom] = useState(0.5);
+
+  const previewStyle = {
+    transformOrigin: "0 0",
+    transform: `scale(${zoom})`,
+  };
 
   const marks = [
     {
@@ -21,24 +27,15 @@ export default function Preview({ product }) {
     },
   ];
 
-  const previewCss = {
-    position: "relative",
-    width: "21cm",
-    height: "29.7cm",
-    "transform-origin": "0 0",
-    "-moz-transform-origin": "0 0",
-    transform: `scale(${zoom})`,
-  };
-
   return (
     <>
       <div>
         <ReactToPrint
           bodyClass={"A4"}
           pageStyle="body{ background-color:'black' }"
+          onBeforePrint={() => {}}
           trigger={() => (
             <Button
-              onClick={() => {}}
               className={classes.printBtn}
               variant="contained"
               color="primary"
@@ -64,8 +61,8 @@ export default function Preview({ product }) {
       <div className={classes.previewWrapper}>
         <div
           ref={componentRef}
-          // style={previewCss}
           className={classes.previewCss}
+          style={previewStyle}
         >
           <img
             alt="preview.jpg"
@@ -94,14 +91,7 @@ export default function Preview({ product }) {
             </div>
           </div>
           <div className={classes.pricePreview}>
-            <Textfit className={classes.priceLabel} mode="single" max={800}>
-              <span className={classes.priceLabelInteger}>
-                {product.price.split(",")[0]}
-              </span>
-              <span className={classes.priceLabelDecimal}>
-                {"," + product.price.split(",")[1]}
-              </span>
-            </Textfit>
+            <PricePreview price={product.price} />
           </div>
         </div>
       </div>

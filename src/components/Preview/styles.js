@@ -3,16 +3,15 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles(theme => ({
   imgPreview: {
     width: "100%",
+    height: "100%",
   },
   previewCss: {
     position: "relative",
-    width: "21cm",
+    width: "211mm",
     height: "29.7cm",
     "@media print": {
-      width: "210mm",
-      height: "296mm",
-      transform: "scale(1)",
-      // overflow: "hidden",
+      transformOrigin: "0 0 !important",
+      transform: "scale(1) !important",
     },
   },
   mainDescriptionPreview: {
@@ -31,7 +30,7 @@ export default makeStyles(theme => ({
     display: "flex",
     position: "absolute",
     width: "100%",
-    top: "30%",
+    top: "9.5cm",
     whiteSpace: "pre-wrap",
     alignItems: "center",
     justifyContent: "center",
@@ -51,6 +50,7 @@ export default makeStyles(theme => ({
   metricLabel: {
     fontFamily: "Helvetica",
     fontSize: "0.8cm",
+    marginLeft: "2cm",
     lineHeight: "1cm",
     fontWeight: "bolder",
   },
@@ -63,28 +63,16 @@ export default makeStyles(theme => ({
     position: "absolute",
     display: "flex",
     alignItems: "center",
-    top: "12cm",
-    height: "15cm",
+    justifyContent: "center",
+    top: "15cm",
     width: "100%",
     whiteSpace: "pre-wrap",
     fontFamily: "Helvetica",
     fontWeight: "bolder",
     color: "red",
-    "@media print": {
-      width: "210mm",
-      height: "200mm",
-      backgroundColor: "gray",
-    },
   },
-  priceLabel: {
-    width: "90%",
-  },
-  priceLabelInteger: {
-    verticalAlign: "middle",
-  },
-  priceLabelDecimal: {
-    fontSize: "40%",
-    verticalAlign: "super",
+  priceWrapper: {
+    lineHeight: 0.85,
   },
   printBtn: {
     margin: "1rem",
