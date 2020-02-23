@@ -15,7 +15,7 @@ import useStyles from "./styles";
 import { mockData, productsDemo, metricHint } from "./data";
 import CurrencyInput from "react-currency-input";
 
-export default function Tags() {
+const Tags = () => {
   const classes = useStyles();
 
   const [type, setType] = React.useState({
@@ -86,7 +86,7 @@ export default function Tags() {
                       }}
                     >
                       {type.sizes.map(size => (
-                        <MenuItem key={size.name} value={size.name}>
+                        <MenuItem key={size.name} value={size}>
                           {size.display}
                         </MenuItem>
                       ))}
@@ -184,11 +184,15 @@ export default function Tags() {
           </Grid>
         </Grid>
         <Grid item xs={12} md={6}>
+          {/* {size && theme && ( */}
           <Widget title="Visualização" disableWidgetMenu>
-            <Preview product={product} />
+            <Preview size={size} product={product} />
           </Widget>
+          {/* )} */}
         </Grid>
       </Grid>
     </>
   );
-}
+};
+
+export default Tags;

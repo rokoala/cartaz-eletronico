@@ -1,19 +1,22 @@
 import React, { useRef, useState } from "react";
-import { Textfit } from "react-textfit";
 import useStyles from "./styles";
 import { Button } from "@material-ui/core/";
 import ReactToPrint from "react-to-print";
 import Slider from "@material-ui/core/Slider";
 import PricePreview from "./PricePreview";
 
-export default function Preview({ product }) {
-  const classes = useStyles();
+export default function Preview({ size, product, source }) {
+  const classes = useStyles({ size: size.name });
   const componentRef = useRef();
   const [zoom, setZoom] = useState(0.5);
 
   const previewStyle = {
     transformOrigin: "0 0",
     transform: `scale(${zoom})`,
+  };
+
+  const mainDescriptionStyle = {
+    fontSize: "40px",
   };
 
   const marks = [
@@ -67,17 +70,18 @@ export default function Preview({ product }) {
           <img
             alt="preview.jpg"
             className={classes.imgPreview}
-            src="/oferta.jpeg"
+            src={size.source}
           ></img>
-          <div className={classes.mainDescriptionPreview}>
-            <Textfit className={classes.mainDescriptionLabel} mode="multi">
-              {product.mainDescription.split("\n").map(chunk => (
-                <>
-                  <span>{chunk}</span>
-                  <br />
-                </>
-              ))}
-            </Textfit>
+          <div
+            className={classes.mainDescriptionPreview}
+            style={mainDescriptionStyle}
+          >
+            {product.mainDescription.split("\n").map(chunk => (
+              <>
+                <span>{chunk}</span>
+                <br />
+              </>
+            ))}
           </div>
           <div className={classes.subDescriptionPreview}>
             <div className={classes.subDescriptionLabel}>

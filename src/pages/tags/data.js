@@ -7,18 +7,22 @@ export const mockData = {
         {
           name: "A4H",
           display: "A4 Horizontal",
+          source: "/h-oferta.jpeg",
         },
         {
           name: "A4V",
           display: "A4 Vertical",
+          source: "/v-oferta.jpeg",
         },
         {
           name: "A5H",
           display: "A5 Horizontal",
+          source: "/h-oferta.jpeg",
         },
         {
           name: "A5V",
           display: "A5 Vertical",
+          source: "/v-oferta.jpeg",
         },
       ],
       themes: [
@@ -35,18 +39,22 @@ export const mockData = {
         {
           name: "A4H",
           display: "A4 Horizontal",
+          source: "/h-oferta.jpeg",
         },
         {
           name: "A4V",
           display: "A4 Vertical",
+          source: "/v-oferta.jpeg",
         },
         {
           name: "A5H",
           display: "A5 Horizontal",
+          source: "/h-oferta.jpeg",
         },
         {
           name: "A5V",
           display: "A5 Vertical",
+          source: "/v-oferta.jpeg",
         },
       ],
       themes: [
@@ -63,18 +71,22 @@ export const mockData = {
         {
           name: "A4H",
           display: "A4 Horizontal",
+          source: "/h-oferta.jpeg",
         },
         {
           name: "A4V",
           display: "A4 Vertical",
+          source: "/v-oferta.jpeg",
         },
         {
           name: "A5H",
           display: "A5 Horizontal",
+          source: "/h-oferta.jpeg",
         },
         {
           name: "A5V",
           display: "A5 Vertical",
+          source: "/v-oferta.jpeg",
         },
       ],
       themes: [
@@ -91,18 +103,22 @@ export const mockData = {
         {
           name: "A4H",
           display: "A4 Horizontal",
+          source: "/h-oferta.jpeg",
         },
         {
           name: "A4V",
           display: "A4 Vertical",
+          source: "/v-oferta.jpeg",
         },
         {
           name: "A5H",
           display: "A5 Horizontal",
+          source: "/h-oferta.jpeg",
         },
         {
           name: "A5V",
           display: "A5 Vertical",
+          source: "/v-oferta.jpeg",
         },
       ],
       themes: [
@@ -119,18 +135,22 @@ export const mockData = {
         {
           name: "A3H",
           display: "A3 Horizontal",
+          source: "/h-oferta.jpeg",
         },
         {
           name: "A3V",
           display: "A3 Vertical",
+          source: "/v-oferta.jpeg",
         },
         {
           name: "A4H",
           display: "A4 Horizontal",
+          source: "/h-oferta.jpeg",
         },
         {
           name: "A4V",
           display: "A4 Vertical",
+          source: "/v-oferta.jpeg",
         },
       ],
       themes: [
