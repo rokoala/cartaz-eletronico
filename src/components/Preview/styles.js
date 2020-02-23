@@ -109,6 +109,8 @@ export default makeStyles(theme => ({
           textAlign: "center",
           whiteSpace: "pre-wrap",
         };
+      default:
+        return {};
     }
   },
   metricLabel: {
