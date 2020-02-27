@@ -6,9 +6,11 @@ import Slider from "@material-ui/core/Slider";
 import PricePreview from "./PricePreview";
 
 export default function Preview({ size, product, source }) {
+  console.log(size.name);
   const classes = useStyles({ size: size.name });
+  const defaultZoomLevel = 0.5;
   const componentRef = useRef();
-  const [zoom, setZoom] = useState(0.5);
+  const [zoom, setZoom] = useState(defaultZoomLevel);
 
   const previewStyle = {
     transformOrigin: "0 0",
@@ -16,7 +18,7 @@ export default function Preview({ size, product, source }) {
   };
 
   const mainDescriptionStyle = {
-    fontSize: "40px",
+    fontSize: "45px",
   };
 
   const marks = [
@@ -52,7 +54,7 @@ export default function Preview({ size, product, source }) {
           max={1}
           min={0.01}
           step={0.01}
-          defaultValue={zoom}
+          defaultValue={defaultZoomLevel}
           marks={marks}
           valueLabelDisplay="auto"
           valueLabelFormat={val => Math.floor(val * 100) + "%"}
@@ -64,7 +66,7 @@ export default function Preview({ size, product, source }) {
       <div className={classes.previewWrapper}>
         <div
           ref={componentRef}
-          className={classes.previewCss}
+          className={`${classes.previewCss} ${classes.printable}`}
           style={previewStyle}
         >
           <img
