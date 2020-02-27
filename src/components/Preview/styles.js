@@ -75,7 +75,7 @@ export default makeStyles(theme => ({
           display: "flex",
           position: "absolute",
           width: "50%",
-          top: "14cm",
+          top: "12cm",
           whiteSpace: "pre-wrap",
           alignItems: "center",
           justifyContent: "center",
@@ -86,7 +86,7 @@ export default makeStyles(theme => ({
   },
   subDescriptionLabel: {
     fontFamily: "Helvetica",
-    fontSize: "2rem",
+    fontSize: "2.5rem",
     fontWeight: "bolder",
   },
   metricPreview: ({ size }) => {
