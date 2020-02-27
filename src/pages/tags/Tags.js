@@ -116,7 +116,7 @@ const Tags = () => {
             <>
               <Grid item xs={12}>
                 <Widget title="Descrição" disableWidgetMenu>
-                  <FormControl className={classes.formControl}>
+                  <div className={classes.formControl}>
                     <InputLabel htmlFor="type">Produto</InputLabel>
                     <CreatableSelect
                       className={classes.overrideIndex}
@@ -124,7 +124,7 @@ const Tags = () => {
                       onChange={handleProductChange}
                       options={productsDemo}
                     />
-                  </FormControl>
+                  </div>
                   <FormControl className={classes.formControl}>
                     <TextField
                       InputLabelProps={{
@@ -149,7 +149,7 @@ const Tags = () => {
                       onChange={handlePropertyProductChange("subDescription")}
                     />
                   </FormControl>
-                  <FormControl className={classes.formControl}>
+                  <div className={classes.formControl}>
                     <InputLabel htmlFor="type">Unidade da venda</InputLabel>
                     <CreatableSelect
                       className={classes.overrideIndex}
@@ -160,7 +160,7 @@ const Tags = () => {
                       }}
                       options={metricHint}
                     />
-                  </FormControl>
+                  </div>
                 </Widget>
               </Grid>
               <Grid item xs={12}>
