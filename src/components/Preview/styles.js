@@ -12,24 +12,22 @@ export default makeStyles(theme => ({
           position: "relative",
           width: "211mm",
           height: "29.7cm",
-          "@media print": {
-            transformOrigin: "0 0 !important",
-            transform: "scale(1) !important",
-          },
         };
       case "A4H":
         return {
           position: "relative",
           height: "211mm",
           width: "29.7cm",
-          "@media print": {
-            transformOrigin: "0 0 !important",
-            transform: "scale(1) !important",
-          },
         };
       default:
         return {};
     }
+  },
+  printable: {
+    "@media print": {
+      transformOrigin: "0 0 !important",
+      transform: "scale(1) !important",
+    },
   },
   mainDescriptionPreview: ({ size }) => {
     switch (size) {
