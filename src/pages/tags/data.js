@@ -173,6 +173,15 @@ export const productsDemo = [
       price: "2,69",
     },
   },
+  {
+    label: "OMO Multiação",
+    value: {
+      mainDescription: "OMO\nMultiação",
+      subDescription: "1kg",
+      metric: "UNIDADE",
+      price: "6,99",
+    },
+  },
 ];
 
 export const metricHint = [
