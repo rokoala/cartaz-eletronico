@@ -102,9 +102,9 @@ const Tags = () => {
                         setTheme(event.target.value);
                       }}
                     >
-                      {type.themes.map(theme => (
-                        <MenuItem key={theme.name} value={theme.name}>
-                          {theme.display}
+                      {type.themes.map(_theme => (
+                        <MenuItem key={_theme.name} value={_theme}>
+                          {_theme.display}
                         </MenuItem>
                       ))}
                     </Select>
@@ -112,83 +112,89 @@ const Tags = () => {
                 )}
               </Widget>
             </Grid>
-            {/* {size && theme && ( */}
-            <>
-              <Grid item xs={12}>
-                <Widget title="Descrição" disableWidgetMenu>
-                  <div className={classes.formControl}>
-                    <InputLabel htmlFor="type">Produto</InputLabel>
-                    <CreatableSelect
-                      className={classes.overrideIndex}
-                      isClearable
-                      onChange={handleProductChange}
-                      options={productsDemo}
-                    />
-                  </div>
-                  <FormControl className={classes.formControl}>
-                    <TextField
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                      label="Descrição principal"
-                      multiline
-                      rows="5"
-                      margin="normal"
-                      variant="outlined"
-                      value={product.mainDescription}
-                      onChange={handlePropertyProductChange("mainDescription")}
-                    />
-                  </FormControl>
-                  <FormControl className={classes.formControl}>
-                    <TextField
-                      InputLabelProps={{ shrink: true }}
-                      label="Descrição secundária"
-                      margin="normal"
-                      variant="outlined"
-                      value={product.subDescription}
-                      onChange={handlePropertyProductChange("subDescription")}
-                    />
-                  </FormControl>
-                  <div className={classes.formControl}>
-                    <InputLabel htmlFor="type">Unidade da venda</InputLabel>
-                    <CreatableSelect
-                      className={classes.overrideIndex}
-                      value={{ label: product.metric, value: product.metric }}
-                      isClearable
-                      onChange={newValue => {
-                        setProduct({ ...product, metric: newValue.value });
-                      }}
-                      options={metricHint}
-                    />
-                  </div>
-                </Widget>
-              </Grid>
-              <Grid item xs={12}>
-                <Widget title="Preço" disableWidgetMenu>
-                  <FormControl className={classes.formControl}>
-                    <CurrencyInput
-                      value={product.price}
-                      decimalSeparator=","
-                      thousandSeparator="."
-                      precision="2"
-                      className={classes.priceInput}
-                      onChangeEvent={(event, maskedvalue) => {
-                        setProduct({ ...product, price: maskedvalue });
-                      }}
-                    />
-                  </FormControl>
-                </Widget>
-              </Grid>
-            </>
-            {/* )} */}
+            {size && theme && (
+              <>
+                <Grid item xs={12}>
+                  <Widget title="Descrição" disableWidgetMenu>
+                    <div className={classes.formControl}>
+                      <InputLabel htmlFor="type">Produto</InputLabel>
+                      <CreatableSelect
+                        className={classes.overrideIndex}
+                        isClearable
+                        onChange={handleProductChange}
+                        options={productsDemo}
+                      />
+                    </div>
+                    <FormControl className={classes.formControl}>
+                      <TextField
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        label="Descrição principal"
+                        multiline
+                        rows="5"
+                        margin="normal"
+                        variant="outlined"
+                        value={product.mainDescription}
+                        onChange={handlePropertyProductChange(
+                          "mainDescription",
+                        )}
+                      />
+                    </FormControl>
+                    <FormControl className={classes.formControl}>
+                      <TextField
+                        InputLabelProps={{ shrink: true }}
+                        label="Descrição secundária"
+                        margin="normal"
+                        variant="outlined"
+                        value={product.subDescription}
+                        onChange={handlePropertyProductChange("subDescription")}
+                      />
+                    </FormControl>
+                    <div className={classes.formControl}>
+                      <InputLabel htmlFor="type">Unidade da venda</InputLabel>
+                      <CreatableSelect
+                        className={classes.overrideIndex}
+                        value={{ label: product.metric, value: product.metric }}
+                        isClearable
+                        onChange={newValue => {
+                          setProduct({ ...product, metric: newValue.value });
+                        }}
+                        options={metricHint}
+                      />
+                    </div>
+                  </Widget>
+                </Grid>
+                <Grid item xs={12}>
+                  <Widget title="Preço" disableWidgetMenu>
+                    <FormControl className={classes.formControl}>
+                      <CurrencyInput
+                        value={product.price}
+                        decimalSeparator=","
+                        thousandSeparator="."
+                        precision="2"
+                        className={classes.priceInput}
+                        onChangeEvent={(event, maskedvalue) => {
+                          setProduct({ ...product, price: maskedvalue });
+                        }}
+                      />
+                    </FormControl>
+                  </Widget>
+                </Grid>
+              </>
+            )}
           </Grid>
         </Grid>
         <Grid item xs={12} md={6}>
-          {/* {size && theme && ( */}
-          <Widget title="Visualização" disableWidgetMenu>
-            <Preview size={size} product={product} />
-          </Widget>
-          {/* )} */}
+          {size && theme && (
+            <Widget title="Visualização" disableWidgetMenu>
+              <Preview
+                size={size}
+                themeSrc={theme.source[size.type]}
+                product={product}
+              />
+            </Widget>
+          )}
         </Grid>
       </Grid>
     </>

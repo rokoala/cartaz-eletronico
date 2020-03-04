@@ -5,7 +5,7 @@ import ReactToPrint from "react-to-print";
 import Slider from "@material-ui/core/Slider";
 import PricePreview from "./PricePreview";
 
-export default function Preview({ size, product, source }) {
+export default function Preview({ size, product, themeSrc }) {
   const classes = useStyles({ size: size.name });
   const defaultZoomLevel = 0.5;
   const componentRef = useRef();
@@ -92,7 +92,7 @@ export default function Preview({ size, product, source }) {
           <img
             alt="preview.jpg"
             className={classes.imgPreview}
-            src={size.source}
+            src={themeSrc}
           ></img>
           <div
             className={classes.mainDescriptionPreview}
