@@ -1,5 +1,4 @@
 import React from "react";
-import useStyles from "./styles";
 
 function digits_count(n) {
   var count = 0;
@@ -18,9 +17,7 @@ const PricePreview = ({
   firstDigitInitialSize = 500,
   secondDigitInitialSize = 250,
 }) => {
-  // const classes = useStyles();
   const aPrice = price.split(",");
-
   const firstDigitSize = digits_count(
     parseInt(aPrice[0].split(".").join(""), 10),
   );
@@ -31,14 +28,9 @@ const PricePreview = ({
     lineHeight: 0.85 * (1 / resizeFactor),
   };
   const secondDigitStyle = {
-    // verticalAlign: "top",
     fontSize: secondDigitInitialSize * resizeFactor + "px",
     lineHeight: 0.85 * ((1 / resizeFactor) * 1.65),
   };
-
-  // const wrapperStyle = {
-  //   lineHeight: 0.85 * (1 / resizeFactor),
-  // };
 
   return (
     <div>
