@@ -38,6 +38,8 @@ export default function Preview({ size, product, source }) {
       firstDigitInitialSize = 370;
       secondDigitInitialSize = 120;
       break;
+    default:
+      break;
   }
 
   const marks = [
