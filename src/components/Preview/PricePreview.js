@@ -13,23 +13,35 @@ function digits_count(n) {
   return count;
 }
 
-const PricePreview = ({ price }) => {
-  const classes = useStyles();
+const PricePreview = ({
+  price,
+  firstDigitInitialSize = 500,
+  secondDigitInitialSize = 250,
+}) => {
+  // const classes = useStyles();
   const aPrice = price.split(",");
 
   const firstDigitSize = digits_count(
     parseInt(aPrice[0].split(".").join(""), 10),
   );
-  const resizeFactor = firstDigitSize >= 2 ? 1.9 / firstDigitSize : 1;
+  const resizeFactor = firstDigitSize > 1 ? 1.6 / firstDigitSize : 1;
 
-  const firstDigitStyle = { fontSize: 450 * resizeFactor + "px" };
+  const firstDigitStyle = {
+    fontSize: firstDigitInitialSize * resizeFactor + "px",
+    lineHeight: 0.85 * (1 / resizeFactor),
+  };
   const secondDigitStyle = {
-    verticalAlign: "top",
-    fontSize: 200 * resizeFactor + "px",
+    // verticalAlign: "top",
+    fontSize: secondDigitInitialSize * resizeFactor + "px",
+    lineHeight: 0.85 * ((1 / resizeFactor) * 1.65),
   };
 
+  // const wrapperStyle = {
+  //   lineHeight: 0.85 * (1 / resizeFactor),
+  // };
+
   return (
-    <div className={classes.priceWrapper}>
+    <div>
       <span style={firstDigitStyle}>{aPrice[0]}</span>
       <span style={secondDigitStyle}>{"," + aPrice[1]}</span>
     </div>

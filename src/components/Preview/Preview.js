@@ -6,7 +6,6 @@ import Slider from "@material-ui/core/Slider";
 import PricePreview from "./PricePreview";
 
 export default function Preview({ size, product, source }) {
-  console.log(size.name);
   const classes = useStyles({ size: size.name });
   const defaultZoomLevel = 0.5;
   const componentRef = useRef();
@@ -17,9 +16,29 @@ export default function Preview({ size, product, source }) {
     transform: `scale(${zoom})`,
   };
 
-  const mainDescriptionStyle = {
-    fontSize: "45px",
-  };
+  const aMainDescription = product.mainDescription.split("\n");
+
+  let pageSize;
+  let mainDescriptionStyle = {};
+  let firstDigitInitialSize = 500;
+  let secondDigitInitialSize = 250;
+
+  switch (size.name) {
+    case "A4V":
+      pageSize = "210mm 297mm";
+      mainDescriptionStyle = {
+        fontSize: 80 / aMainDescription.length + "px",
+      };
+      break;
+    case "A4H":
+      pageSize = "297mm 210mm";
+      mainDescriptionStyle = {
+        fontSize: 155 / aMainDescription.length + "px",
+      };
+      firstDigitInitialSize = 370;
+      secondDigitInitialSize = 120;
+      break;
+  }
 
   const marks = [
     {
@@ -36,8 +55,7 @@ export default function Preview({ size, product, source }) {
     <>
       <div>
         <ReactToPrint
-          bodyClass={"A4"}
-          pageStyle="body{ background-color:'black' }"
+          pageStyle={`@media print { @page {size: ${pageSize} } }`}
           onBeforePrint={() => {}}
           trigger={() => (
             <Button
@@ -97,7 +115,11 @@ export default function Preview({ size, product, source }) {
             </div>
           </div>
           <div className={classes.pricePreview}>
-            <PricePreview price={product.price} />
+            <PricePreview
+              firstDigitInitialSize={firstDigitInitialSize}
+              secondDigitInitialSize={secondDigitInitialSize}
+              price={product.price}
+            />
           </div>
         </div>
       </div>

@@ -1,6 +1,8 @@
 @page {
   margin: 0;
+  /* size: 210mm 29.69cm; */
 }
+
 body {
   margin: 0;
 }
@@ -13,7 +15,7 @@ body {
 }
 
 /** Paper sizes **/
-body.A3 .sheet {
+/* body.A3 .sheet {
   width: 297mm;
   height: 419mm;
 }
@@ -52,10 +54,10 @@ body.legal .sheet {
 body.legal.landscape .sheet {
   width: 357mm;
   height: 215mm;
-}
+} */
 
 /** Padding area **/
-.sheet.padding-10mm {
+/* .sheet.padding-10mm {
   padding: 10mm;
 }
 .sheet.padding-15mm {
@@ -66,10 +68,10 @@ body.legal.landscape .sheet {
 }
 .sheet.padding-25mm {
   padding: 25mm;
-}
+} */
 
 /** For screen preview **/
-@media screen {
+/* @media screen {
   body {
     background: #e0e0e0;
   }
@@ -78,10 +80,10 @@ body.legal.landscape .sheet {
     box-shadow: 0 0.5mm 2mm rgba(0, 0, 0, 0.3);
     margin: 5mm auto;
   }
-}
+} */
 
 /** Fix for Chrome issue #273306 **/
-@media print {
+/* @media print {
   body.A3.landscape {
     width: 420mm;
   }
@@ -106,4 +108,4 @@ body.legal.landscape .sheet {
   body.legal.landscape {
     width: 357mm;
   }
-}
+} */

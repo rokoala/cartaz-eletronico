@@ -10,14 +10,14 @@ export default makeStyles(theme => ({
       case "A4V":
         return {
           position: "relative",
-          width: "211mm",
-          height: "29.7cm",
+          width: "210mm",
+          height: "29.69cm",
         };
       case "A4H":
         return {
           position: "relative",
-          height: "211mm",
-          width: "29.7cm",
+          height: "209.9mm",
+          width: "297mm",
         };
       default:
         return {};
@@ -35,8 +35,8 @@ export default makeStyles(theme => ({
         return {
           position: "absolute",
           top: "6.5cm",
-          left: "25%",
-          width: "50%",
+          // left: "25%",
+          width: "100%",
           height: "3cm",
           textAlign: "center",
           whiteSpace: "pre-wrap",
@@ -55,9 +55,6 @@ export default makeStyles(theme => ({
         return {};
     }
   },
-  mainDescriptionLabel: {
-    height: "100%",
-  },
   subDescriptionPreview: ({ size }) => {
     switch (size) {
       case "A4V":
@@ -75,7 +72,7 @@ export default makeStyles(theme => ({
           display: "flex",
           position: "absolute",
           width: "50%",
-          top: "12cm",
+          top: "15cm",
           whiteSpace: "pre-wrap",
           alignItems: "center",
           justifyContent: "center",
@@ -156,9 +153,9 @@ export default makeStyles(theme => ({
         return {};
     }
   },
-  priceWrapper: {
-    lineHeight: 0.85,
-  },
+  // priceWrapper: {
+  //   lineHeight: 0.85,
+  // },
   printBtn: {
     margin: "1rem",
   },
