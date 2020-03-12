@@ -9,6 +9,7 @@ import {
   MenuItem,
   Select,
   TextField,
+  Typography,
 } from "@material-ui/core";
 import CreatableSelect from "react-select/creatable";
 import useStyles from "./styles";
@@ -37,6 +38,7 @@ const Tags = () => {
     subDescription: "",
     metric: "",
     price: "0,00",
+    originalPrice: "0,00",
   });
 
   const handleProductChange = newValue => {
@@ -168,6 +170,27 @@ const Tags = () => {
                 <Grid item xs={12}>
                   <Widget title="Preço" disableWidgetMenu>
                     <FormControl className={classes.formControl}>
+                      {type.name === "de_por" && (
+                        <>
+                          <Typography>Preço</Typography>
+                          <CurrencyInput
+                            value={product.originalPrice}
+                            decimalSeparator=","
+                            thousandSeparator="."
+                            precision="2"
+                            className={classes.priceInput}
+                            onChangeEvent={(event, maskedvalue) => {
+                              setProduct({
+                                ...product,
+                                originalPrice: maskedvalue,
+                              });
+                            }}
+                          />
+                        </>
+                      )}
+                      <Typography>
+                        Preço {type.name === "de_por" && "Promocional"}
+                      </Typography>
                       <CurrencyInput
                         value={product.price}
                         decimalSeparator=","
@@ -190,6 +213,7 @@ const Tags = () => {
             <Widget title="Visualização" disableWidgetMenu>
               <Preview
                 size={size}
+                typeName={type.name}
                 themeSrc={theme.source[size.type]}
                 product={product}
               />

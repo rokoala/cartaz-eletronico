@@ -5,7 +5,7 @@ import ReactToPrint from "react-to-print";
 import Slider from "@material-ui/core/Slider";
 import PricePreview from "./PricePreview";
 
-export default function Preview({ size, product, themeSrc }) {
+export default function Preview({ size, product, themeSrc, typeName }) {
   const classes = useStyles({ size: size.name });
   const defaultZoomLevel = 0.5;
   const componentRef = useRef();
@@ -110,6 +110,20 @@ export default function Preview({ size, product, themeSrc }) {
               {product.subDescription}
             </div>
           </div>
+          {typeName === "de_por" && (
+            <div className={classes.fromToLabel}>
+              <div>
+                DE:
+                <div style={{ display: "inline-block" }}>
+                  <span className={classes.originalPrice}>
+                    {product.originalPrice}
+                    <span className={classes.lineNumber}></span>
+                  </span>
+                </div>
+              </div>
+              <div>POR:</div>
+            </div>
+          )}
           <div className={classes.metricPreview}>
             <div className={classes.metricLabel}>
               R$<span className={classes.verticalSplit}>|</span>

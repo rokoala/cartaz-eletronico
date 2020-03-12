@@ -91,7 +91,7 @@ export default makeStyles(theme => ({
       case "A4V":
         return {
           position: "absolute",
-          top: "12cm",
+          top: "14cm",
           width: "6cm",
           textAlign: "center",
           whiteSpace: "pre-wrap",
@@ -99,7 +99,7 @@ export default makeStyles(theme => ({
       case "A4H":
         return {
           position: "absolute",
-          top: "8cm",
+          top: "9.5cm",
           left: "50%",
           textAlign: "center",
           whiteSpace: "pre-wrap",
@@ -143,7 +143,7 @@ export default makeStyles(theme => ({
           justifyContent: "center",
           width: "50%",
           left: "50%",
-          top: "9cm",
+          top: "10.5cm",
           whiteSpace: "pre-wrap",
           fontFamily: "Helvetica",
           fontWeight: "bolder",
@@ -153,9 +153,6 @@ export default makeStyles(theme => ({
         return {};
     }
   },
-  // priceWrapper: {
-  //   lineHeight: 0.85,
-  // },
   printBtn: {
     margin: "1rem",
   },
@@ -163,5 +160,43 @@ export default makeStyles(theme => ({
     overflow: "scroll",
     backgroundColor: "lightgray",
     maxHeight: "70vh",
+  },
+  fromToLabel: ({ size }) => {
+    switch (size) {
+      case "A4V":
+        return {
+          position: "absolute",
+          top: "10.7cm",
+          fontWeight: "bold",
+          fontSize: "30px",
+          textAlign: "left",
+          left: "75px",
+        };
+      case "A4H":
+        return {
+          position: "absolute",
+          top: "6cm",
+          fontWeight: "bold",
+          fontSize: "30px",
+          textAlign: "left",
+          left: "630px",
+        };
+      default:
+        return {};
+    }
+  },
+  lineNumber: {
+    position: "absolute",
+    width: "110%",
+    backgroundColor: "#ff2626",
+    height: "3px",
+    left: 0,
+    right: 0,
+    top: "45%",
+    transform: "rotate(-12deg)",
+  },
+  originalPrice: {
+    position: "relative",
+    fontSize: "50px",
   },
 }));
