@@ -74,43 +74,43 @@ export const mockData = {
         },
       ],
     },
-    {
-      id: 2,
-      display: "Comunicado",
-      name: "comunicado",
-      sizes: [
-        {
-          name: "A4H",
-          display: "A4 Horizontal",
-          type: "horizontal",
-        },
-        {
-          name: "A4V",
-          display: "A4 Vertical",
-          type: "vertical",
-        },
-        {
-          name: "A5H",
-          display: "A5 Horizontal",
-          type: "horizontal",
-        },
-        {
-          name: "A5V",
-          display: "A5 Vertical",
-          type: "vertical",
-        },
-      ],
-      themes: [
-        {
-          name: "BRANCO",
-          display: "BRANCO",
-          source: {
-            vertical: "/v-branco.jpeg",
-            horizontal: "/h-branco.jpeg",
-          },
-        },
-      ],
-    },
+    // {
+    //   id: 2,
+    //   display: "Comunicado",
+    //   name: "comunicado",
+    //   sizes: [
+    //     {
+    //       name: "A4H",
+    //       display: "A4 Horizontal",
+    //       type: "horizontal",
+    //     },
+    //     {
+    //       name: "A4V",
+    //       display: "A4 Vertical",
+    //       type: "vertical",
+    //     },
+    //     {
+    //       name: "A5H",
+    //       display: "A5 Horizontal",
+    //       type: "horizontal",
+    //     },
+    //     {
+    //       name: "A5V",
+    //       display: "A5 Vertical",
+    //       type: "vertical",
+    //     },
+    //   ],
+    //   themes: [
+    //     {
+    //       name: "BRANCO",
+    //       display: "BRANCO",
+    //       source: {
+    //         vertical: "/v-branco.jpeg",
+    //         horizontal: "/h-branco.jpeg",
+    //       },
+    //     },
+    //   ],
+    // },
     // {
     //   id: 3,
     //   display: "de por",

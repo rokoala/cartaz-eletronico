@@ -4,6 +4,7 @@ import { Button } from "@material-ui/core/";
 import ReactToPrint from "react-to-print";
 import Slider from "@material-ui/core/Slider";
 import PricePreview from "./PricePreview";
+import { Textfit } from "react-textfit";
 
 export default function Preview({ size, product, themeSrc, typeName }) {
   const classes = useStyles({ size: size.name });
@@ -16,7 +17,12 @@ export default function Preview({ size, product, themeSrc, typeName }) {
     transform: `scale(${zoom})`,
   };
 
-  const aMainDescription = product.mainDescription.split("\n");
+  const mainDescriptionNewLine = product.mainDescription.split("\n");
+
+  const mainDescriptionSize = product.mainDescription
+    .split("\n")
+    .join("")
+    .split("");
 
   let pageSize;
   let mainDescriptionStyle = {};
@@ -27,14 +33,20 @@ export default function Preview({ size, product, themeSrc, typeName }) {
     case "A4V":
       pageSize = "210mm 297mm";
       mainDescriptionStyle = {
-        fontSize: 80 / aMainDescription.length + "px",
+        fontSize: 80 / mainDescriptionNewLine.length + "px",
       };
       break;
     case "A4H":
       pageSize = "297mm 210mm";
       mainDescriptionStyle = {
-        fontSize: 155 / aMainDescription.length + "px",
+        // fontSize: 155 / mainDescriptionNewLine.length + "px",
+        fontSize:
+          155 -
+          mainDescriptionSize.length * 2 -
+          2 * mainDescriptionNewLine.length +
+          "px",
       };
+
       firstDigitInitialSize = 370;
       secondDigitInitialSize = 120;
       break;
@@ -94,16 +106,18 @@ export default function Preview({ size, product, themeSrc, typeName }) {
             className={classes.imgPreview}
             src={themeSrc}
           ></img>
+
           <div
             className={classes.mainDescriptionPreview}
-            style={mainDescriptionStyle}
+            // style={mainDescriptionStyle}
           >
-            {product.mainDescription.split("\n").map(chunk => (
-              <>
-                <span>{chunk}</span>
-                <br />
-              </>
-            ))}
+            {/* {product.mainDescription.split("\n").map(chunk => (
+              <> */}
+            <Textfit>{product.mainDescription}</Textfit>
+            {/* <span>{chunk}</span> */}
+            {/* <br /> */}
+            {/* </>
+            ))} */}
           </div>
           <div className={classes.subDescriptionPreview}>
             <div className={classes.subDescriptionLabel}>

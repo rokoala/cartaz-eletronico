@@ -15,9 +15,19 @@ import CreatableSelect from "react-select/creatable";
 import useStyles from "./styles";
 import { mockData, productsDemo, metricHint } from "./data";
 import CurrencyInput from "react-currency-input";
+import BigText from "../../components/Preview/BigText";
 
 const Tags = () => {
   const classes = useStyles();
+
+  const initialProduct = {
+    name: "",
+    mainDescription: "",
+    subDescription: "",
+    metric: "",
+    price: "0,00",
+    originalPrice: "0,00",
+  };
 
   const [type, setType] = React.useState({
     id: "",
@@ -26,22 +36,18 @@ const Tags = () => {
   const [size, setSize] = React.useState("");
   const [theme, setTheme] = React.useState("");
 
-  const handleChangeType = event => {
+  const handleChangeType = (event) => {
     setType(mockData.types[event.target.value]);
     setSize("");
     setTheme("");
+    setProduct({ ...initialProduct });
   };
 
   const [product, setProduct] = React.useState({
-    name: "",
-    mainDescription: "",
-    subDescription: "",
-    metric: "",
-    price: "0,00",
-    originalPrice: "0,00",
+    ...initialProduct,
   });
 
-  const handleProductChange = newValue => {
+  const handleProductChange = (newValue) => {
     // if is a new product
     if (newValue.value === newValue.label) {
       setProduct({
@@ -56,7 +62,7 @@ const Tags = () => {
     }
   };
 
-  const handlePropertyProductChange = name => event => {
+  const handlePropertyProductChange = (name) => (event) => {
     setProduct({ ...product, [name]: event.target.value });
   };
 
@@ -71,7 +77,7 @@ const Tags = () => {
                 <FormControl className={classes.formControl}>
                   <InputLabel htmlFor="type">Dinâmica Comercial</InputLabel>
                   <Select value={type.id} onChange={handleChangeType}>
-                    {mockData.types.map(type => (
+                    {mockData.types.map((type) => (
                       <MenuItem key={type.id} value={type.id}>
                         {type.display}
                       </MenuItem>
@@ -83,11 +89,11 @@ const Tags = () => {
                     <InputLabel htmlFor="type">Tamanho</InputLabel>
                     <Select
                       value={size}
-                      onChange={event => {
+                      onChange={(event) => {
                         setSize(event.target.value);
                       }}
                     >
-                      {type.sizes.map(size => (
+                      {type.sizes.map((size) => (
                         <MenuItem key={size.name} value={size}>
                           {size.display}
                         </MenuItem>
@@ -100,11 +106,11 @@ const Tags = () => {
                     <InputLabel htmlFor="type">Campanha</InputLabel>
                     <Select
                       value={theme}
-                      onChange={event => {
+                      onChange={(event) => {
                         setTheme(event.target.value);
                       }}
                     >
-                      {type.themes.map(_theme => (
+                      {type.themes.map((_theme) => (
                         <MenuItem key={_theme.name} value={_theme}>
                           {_theme.display}
                         </MenuItem>
@@ -159,7 +165,7 @@ const Tags = () => {
                         className={classes.overrideIndex}
                         value={{ label: product.metric, value: product.metric }}
                         isClearable
-                        onChange={newValue => {
+                        onChange={(newValue) => {
                           setProduct({ ...product, metric: newValue.value });
                         }}
                         options={metricHint}
